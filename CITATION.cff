@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "constrained-decoding-from-scratch"
+abstract: "JSON-Schema-constrained decoding from scratch: compile a schema to an automaton, mask a real tokenizer's vocabulary, and measure what guaranteed-valid output does and does not buy you."
+authors:
+  - family-names: Baby
+    given-names: Ajin
+    orcid: "https://orcid.org/0009-0007-6190-9516"
+repository-code: "https://github.com/ajinb/constrained-decoding-from-scratch"
+url: "https://cloudandsre.com"
+license: Apache-2.0
+version: 0.1.0
+date-released: 2026-11-08

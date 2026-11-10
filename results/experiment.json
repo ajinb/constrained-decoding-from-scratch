@@ -1,0 +1,105 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "vocabulary": 48838,
+  "mask_setup_ms": 172.0,
+  "results": [
+    {
+      "mode": "prompt only",
+      "cases": 200,
+      "max_new_tokens": 48,
+      "valid_rate": 0.03,
+      "all_fields_correct_rate": 0.03,
+      "field_correct_rate": {
+        "service": 0.03,
+        "severity": 0.205,
+        "minutes": 0.86
+      },
+      "masking_ms_per_token": 0.0,
+      "examples": [
+        "{\"service\":\"The catalog service had a medium severity incident that lasted 145 minutes.\",\"severity\":\"Medium\",\"minutes\":145}",
+        "{\"service\":\"search\",\"severity\":\"critical\",\"minutes\":11}",
+        "{\"service\":\"For 164 minutes the ledger team fought a high outage.\",\"severity\":\"High\",\"minutes\":164}"
+      ]
+    },
+    {
+      "mode": "constrained, compact grammar",
+      "cases": 200,
+      "max_new_tokens": 48,
+      "valid_rate": 1,
+      "all_fields_correct_rate": 0.4,
+      "field_correct_rate": {
+        "service": 0.4,
+        "severity": 1,
+        "minutes": 0.99
+      },
+      "masking_ms_per_token": 0.027,
+      "examples": [
+        "{\"service\":\"catalog\",\"severity\":\"medium\",\"minutes\":145}",
+        "{\"service\":\"search\",\"severity\":\"critical\",\"minutes\":11}",
+        "{\"service\":\"search\",\"severity\":\"high\",\"minutes\":164}"
+      ]
+    },
+    {
+      "mode": "constrained, whitespace allowed",
+      "cases": 200,
+      "max_new_tokens": 48,
+      "valid_rate": 1,
+      "all_fields_correct_rate": 0.4,
+      "field_correct_rate": {
+        "service": 0.4,
+        "severity": 1,
+        "minutes": 0.99
+      },
+      "masking_ms_per_token": 0.03,
+      "examples": [
+        "{\"service\":\"catalog\",\"severity\":\"medium\",\"minutes\":145}",
+        "{\"service\":\"search\",\"severity\":\"critical\",\"minutes\":11}",
+        "{\"service\":\"search\",\"severity\":\"high\",\"minutes\":164}"
+      ]
+    },
+    {
+      "mode": "constrained, cut off at 8 tokens",
+      "cases": 200,
+      "max_new_tokens": 8,
+      "valid_rate": 0,
+      "all_fields_correct_rate": 0,
+      "field_correct_rate": {
+        "service": 0,
+        "severity": 0,
+        "minutes": 0
+      },
+      "masking_ms_per_token": 0.026,
+      "examples": [
+        "{\"service\":\"catalog\",\"severity\":\"",
+        "{\"service\":\"search\",\"severity\":\"",
+        "{\"service\":\"search\",\"sever"
+      ]
+    }
+  ],
+  "state_growth": [
+    {
+      "limit": 5,
+      "unbounded_array_states": 58,
+      "bounded_array_states": 142,
+      "nested_bounded_states": 712
+    },
+    {
+      "limit": 10,
+      "unbounded_array_states": 68,
+      "bounded_array_states": 332,
+      "nested_bounded_states": 3322
+    },
+    {
+      "limit": 20,
+      "unbounded_array_states": 88,
+      "bounded_array_states": 862,
+      "nested_bounded_states": 17242
+    },
+    {
+      "limit": 40,
+      "unbounded_array_states": 128,
+      "bounded_array_states": 2522,
+      "nested_bounded_states": 100882
+    }
+  ]
+}
